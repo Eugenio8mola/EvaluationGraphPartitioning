@@ -843,12 +843,12 @@ int main(int argc, char *argv[]) {
     auto start_time = chrono::high_resolution_clock::now();
     vector<int> partition(n, -1);
     auto generation_start_time = chrono::high_resolution_clock::now();
-    GraphHandler myGraphHandler(n, maxWeight);
+    //GraphHandler myGraphHandler(n, maxWeight);
     auto generation_end_time = chrono::high_resolution_clock::now();
     auto gen_duration = chrono::duration_cast<chrono::microseconds>(generation_end_time - generation_start_time);
     // Save the graph
     auto save_start_time = chrono::high_resolution_clock::now();
-    GraphHandler::saveAdjacencyList(myGraphHandler.getGraph(), "graph.txt");
+    //GraphHandler::saveAdjacencyList(myGraphHandler.getGraph(), "graph.txt");
     auto save_end_time = chrono::high_resolution_clock::now();
     auto save_duration = chrono::duration_cast<chrono::microseconds>(save_end_time - save_start_time);
     // Read the graph from file
@@ -873,9 +873,9 @@ int main(int argc, char *argv[]) {
     //printPartition(partition);
     auto end_time = chrono::high_resolution_clock::now();
     auto duration = chrono::duration_cast<chrono::microseconds>(end_time - start_time);
-    cout << "Generation Time: " << gen_duration.count() << " microseconds   " << gen_duration.count()/pow(10,6) << " seconds" <<endl;
-    cout << "Saving Time: " << save_duration.count() << " microseconds    " << save_duration.count()/pow(10,6) << " seconds" <<endl;
-    cout << "Reading Time: " << read_duration.count() << " microseconds    " << read_duration.count()/pow(10,6) << " seconds" <<endl;
+    //cout << "Generation Time: " << gen_duration.count() << " microseconds   " << gen_duration.count()/pow(10,6) << " seconds" <<endl;
+    //cout << "Saving Time: " << save_duration.count() << " microseconds    " << save_duration.count()/pow(10,6) << " seconds" <<endl;
+    //cout << "Reading Time: " << read_duration.count() << " microseconds    " << read_duration.count()/pow(10,6) << " seconds" <<endl;
     cout << "MultilevelKL Time: " << multiKL_duration.count() << " microseconds     " << multiKL_duration.count()/pow(10,6)  << " seconds\n" <<endl;
     cout << "Coarsening Time: " << effective_time.count() << " microseconds     " << effective_time.count() /pow(10,6) << " seconds" <<endl;
     cout << "Uncoarsening Time: " << un_effective_time.count() << " microseconds    " << un_effective_time.count() /pow(10,6)  << " seconds" <<endl;
